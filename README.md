@@ -74,4 +74,6 @@ In 2021, the lower quartile between Mercedes and Red Bull is close, with more ov
 
 ![cons_positions](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA_avg_constructor_wins.png)
 
+## TBC
+Next, I will look at how to apply machine learning methods to this F1 data to try and predict race winners.
 
