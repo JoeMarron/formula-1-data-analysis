@@ -283,15 +283,17 @@ ggplot() +
 
 ### filter for UK Wins, group by driver nationality and plot horizontal bar chart ###
 british_gp_winners <- master_results %>%
-  filter(country == "UK", position == 1) %>% #, statusId==1) %>% 
+  filter(country == "UK", position == 1) %>%
   select(year, driver_nationality) %>% 
   group_by(year, driver_nationality) %>%
   summarise(count_nt = n()) %>% 
-  ggplot(aes(fct_rev(fct_infreq(driver_nationality)))) +
-  geom_bar(position = "dodge", fill = "#00D2BE")+
+  ggplot(aes(fct_rev(fct_infreq(driver_nationality)), fill=as.factor(ifelse(driver_nationality=="British","Highlight","Normal"))))+
+  geom_bar(position = "dodge", show.legend=FALSE)+
+  scale_fill_manual(values=c("#C8102E","#8898AC"))+
   labs(title = "Total Wins at Silverstone (UK) by Driver Nationality",
        x = "Driver Nationality",
        y = "Number of Wins")+coord_flip()
-
+  
+british_gp_winners
 ggsave("./EDA_silverstone_winners.png", plot=british_gp_winners)
 
