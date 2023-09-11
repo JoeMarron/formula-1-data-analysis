@@ -52,7 +52,7 @@ british_gp_winners <- master_results %>%
        y = "Number of Wins")+coord_flip()
 ```
 
-![silverstone_winners](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_silverstone_winners.png)
+![silverstone_winners](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_silverstone_winners_nationality.png)
 
 #### Constructor Race Wins by Season
 Below shows how three competitive constructors (Ferrari, Mercedes and Red Bull) average finishing positions change across seasons from 2018-2022. This demonstrates how constructor information will be crucial for a machine learning model in predicting race winners.
