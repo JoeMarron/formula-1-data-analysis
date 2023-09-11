@@ -51,7 +51,7 @@ british_gp_winners <- master_results %>%
        y = "Number of Wins")+coord_flip()
 ```
 
-![silverstone_winners](https://github.com/joemarron/formula-1-machine-learning/blob/EDA/EDA_silverstone_winners.png)
+![silverstone_winners](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_silverstone_winners.png)
 
 #### Constructor Race Wins by Season
 Below shows how three competitive constructors (Ferrari, Mercedes and Red Bull) average finishing positions change across seasons from 2018-2022. This demonstrates how constructor information will be crucial for a machine learning model in predicting race winners.
@@ -72,7 +72,7 @@ avg_constructor_positions <- master_results %>%
 
 In 2021, the lower quartile between Mercedes and Red Bull is close, with more overall variance in Red Bulls finishing position. This is backed up as 2021 was the most competitive season since the dawn of the hybrid era (2014), with Mercedes winning the constrcutors title, due to more consistantly high finishing positions, but Verstappen ultimately *won* the drivers championship, likely explaining the slightly lower lower quartile for Red Bull.
 
-![cons_positions](https://github.com/joemarron/formula-1-machine-learning/EDA/blob/EDA/EDA_avg_constructor_wins.png)
+![cons_positions](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_avg_constructor_wins.png)
 
 ## TBC
 Next, I will look at how to apply machine learning methods to this F1 data to try and predict race winners.
