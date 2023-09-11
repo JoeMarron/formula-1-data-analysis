@@ -2,7 +2,7 @@
 # Formula 1 Machine Learning in R
 
 ***Work in Progress*** \
-Implementing a machine learning model on Formula 1 data to predict race winners. First time using R, as part of the 'R for Data Science' module in the MSc Data Science & Financial Technology from University of London.
+Implementing a machine learning model on Formula 1 data to predict race winners. First time using R, as part of the *R for Data Science* module in the MSc Data Science & Financial Technology from University of London.
 
 ## Data Preprocessing
 The following CSV files sourced from [Kaggle](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) have been cleansed and combined into a final dataset, some examples of the columns shown below. Some columns have also been calculated, such as driver age.
