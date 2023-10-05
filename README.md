@@ -79,3 +79,29 @@ In 2021, the lower quartile between Mercedes and Red Bull is close, with more ov
 ## TBC
 Next, I will look at how to apply machine learning methods to this F1 data to try and predict race winners.
 
+## Results
+
+| year | round | circuit       | Actual         | Predicted      |
+| ---- | ----- | ------------- | -------------- | -------------- |
+| 2021 | 1     | bahrain       | hamilton       | hamilton       |
+| 2021 | 2     | imola         | max_verstappen | max_verstappen |
+| 2021 | 3     | portimao      | hamilton       | hamilton       |
+| 2021 | 4     | catalunya     | hamilton       | hamilton       |
+| 2021 | 5     | monaco        | hamilton       | max_verstappen |
+| 2021 | 6     | baku          | perez          | perez          |
+| 2021 | 7     | ricard        | max_verstappen | max_verstappen |
+| 2021 | 8     | red_bull_ring | max_verstappen | max_verstappen |
+| 2021 | 9     | red_bull_ring | max_verstappen | max_verstappen |
+| 2021 | 10    | silverstone   | hamilton       | hamilton       |
+| 2021 | 11    | hungaroring   | hamilton       | ocon           |
+| 2021 | 12    | spa           | max_verstappen | max_verstappen |
+| 2021 | 13    | zandvoort     | max_verstappen | max_verstappen |
+| 2021 | 14    | monza         | ricciardo      | ricciardo      |
+| 2021 | 15    | sochi         | hamilton       | hamilton       |
+| 2021 | 16    | istanbul      | bottas         | bottas         |
+| 2021 | 17    | americas      | max_verstappen | max_verstappen |
+| 2021 | 18    | rodriguez     | max_verstappen | max_verstappen |
+| 2021 | 19    | interlagos    | hamilton       | hamilton       |
+| 2021 | 20    | losail        | hamilton       | hamilton       |
+| 2021 | 21    | jeddah        | hamilton       | hamilton       |
+| 2021 | 22    | yas_marina    | max_verstappen | max_verstappen |
