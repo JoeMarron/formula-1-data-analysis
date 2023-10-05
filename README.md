@@ -6,32 +6,30 @@ Implemented a machine learning model on Formula 1 data to predict race winners. 
 ## Summary
 Successful implementation of a deep feed-forward neural network was achieved using R, resulting in successfully predicting race winners for **67%** of races. Using K-Fold Cross Validation, I applied a NN model to 3 versions of the dataset, due to the imbalance of classes (only 5% of the rows in data represented a winner) - the standard dataset, an oversampled and undersampled one. Suprisingly, the data with no sampling method applied performed the best on average, with the resulting race predictions for the **2021 Formula One World Championship** shown in the table below.
 
-| year | round | circuit       | Actual         | Predicted      |
-| ---- | ----- | ------------- | -------------- | -------------- |
-| 2021 | 1     | bahrain       | hamilton       | hamilton       |
-| 2021 | 2     | imola         | max_verstappen | max_verstappen |
-| 2021 | 3     | portimao      | hamilton       | hamilton       |
-| 2021 | 4     | catalunya     | hamilton       | hamilton       |
-| 2021 | 5     | monaco        | hamilton       | max_verstappen |
-| 2021 | 6     | baku          | perez          | perez          |
-| 2021 | 7     | ricard        | max_verstappen | max_verstappen |
-| 2021 | 8     | red_bull_ring | max_verstappen | max_verstappen |
-| 2021 | 9     | red_bull_ring | max_verstappen | max_verstappen |
-| 2021 | 10    | silverstone   | hamilton       | hamilton       |
-| 2021 | 11    | hungaroring   | hamilton       | ocon           |
-| 2021 | 12    | spa           | max_verstappen | max_verstappen |
-| 2021 | 13    | zandvoort     | max_verstappen | max_verstappen |
-| 2021 | 14    | monza         | ricciardo      | ricciardo      |
-| 2021 | 15    | sochi         | hamilton       | hamilton       |
-| 2021 | 16    | istanbul      | bottas         | bottas         |
-| 2021 | 17    | americas      | max_verstappen | max_verstappen |
-| 2021 | 18    | rodriguez     | max_verstappen | max_verstappen |
-| 2021 | 19    | interlagos    | hamilton       | hamilton       |
-| 2021 | 20    | losail        | hamilton       | hamilton       |
-| 2021 | 21    | jeddah        | hamilton       | hamilton       |
-| 2021 | 22    | yas_marina    | max_verstappen | max_verstappen |
-
-
+| Year | Round | Circuit       | Driver Nationality | Driver Age | Actual           | Predicted        |
+| ---- | ----- | ------------- | ------------------ | ---------- | ---------------- | ---------------- |
+| 2021 | 1     | bahrain       | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 2     | imola         | Dutch              | 23         | Max Verstappen   | Max Verstappen   |
+| 2021 | 3     | portimao      | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 4     | catalunya     | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 5     | monaco        | Dutch              | 23         | Lewis Hamilton   | Max Verstappen   |
+| 2021 | 6     | baku          | Mexican            | 31         | Sergio Pérez     | Sergio Pérez     |
+| 2021 | 7     | ricard        | Dutch              | 23         | Max Verstappen   | Max Verstappen   |
+| 2021 | 8     | red_bull_ring | Dutch              | 23         | Max Verstappen   | Max Verstappen   |
+| 2021 | 9     | red_bull_ring | Dutch              | 23         | Max Verstappen   | Max Verstappen   |
+| 2021 | 10    | silverstone   | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 11    | hungaroring   | French             | 24         | Lewis Hamilton   | Esteban Ocon     |
+| 2021 | 12    | spa           | Dutch              | 23         | Max Verstappen   | Max Verstappen   |
+| 2021 | 13    | zandvoort     | Dutch              | 23         | Max Verstappen   | Max Verstappen   |
+| 2021 | 14    | monza         | Australian         | 32         | Daniel Ricciardo | Daniel Ricciardo |
+| 2021 | 15    | sochi         | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 16    | istanbul      | Finnish            | 32         | Valtteri Bottas  | Valtteri Bottas  |
+| 2021 | 17    | americas      | Dutch              | 24         | Max Verstappen   | Max Verstappen   |
+| 2021 | 18    | rodriguez     | Dutch              | 24         | Max Verstappen   | Max Verstappen   |
+| 2021 | 19    | interlagos    | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 20    | losail        | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 21    | jeddah        | British            | 36         | Lewis Hamilton   | Lewis Hamilton   |
+| 2021 | 22    | yas_marina    | Dutch              | 24         | Max Verstappen   | Max Verstappen   |
 
 ## Data Preprocessing
 The following CSV files sourced from [Kaggle](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) were cleansed and combined into a final dataset, some examples of the columns shown below. A few columns have also been calculated, such as driver age.
