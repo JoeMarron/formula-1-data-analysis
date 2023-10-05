@@ -1,11 +1,40 @@
 
 # Formula 1 Machine Learning in R
 
-***Work in Progress*** \
-Implementing a machine learning model on Formula 1 data to predict race winners. First time using R, as part of the *R for Data Science* module in the MSc Data Science & Financial Technology from University of London.
+Implemented a machine learning model on Formula 1 data to predict race winners. First time using R, as part of the *R for Data Science* module in the MSc Data Science & Financial Technology from University of London.
+
+## Summary
+Successful implementation of a deep feed-forward neural network was achieved using R, resulting in successfully predicting race winners for **67%** of races. Using K-Fold Cross Validation, I applied a NN model to 3 versions of the dataset, due to the imbalance of classes (only 5% of the rows in data represented a winner) - the standard dataset, an oversampled and undersampled one. Suprisingly, the data with no sampling method applied performed the best on average, with the resulting race predictions for the **2021 Formula One World Championship** shown in the table below.
+
+| year | round | circuit       | Actual         | Predicted      |
+| ---- | ----- | ------------- | -------------- | -------------- |
+| 2021 | 1     | bahrain       | hamilton       | hamilton       |
+| 2021 | 2     | imola         | max_verstappen | max_verstappen |
+| 2021 | 3     | portimao      | hamilton       | hamilton       |
+| 2021 | 4     | catalunya     | hamilton       | hamilton       |
+| 2021 | 5     | monaco        | hamilton       | max_verstappen |
+| 2021 | 6     | baku          | perez          | perez          |
+| 2021 | 7     | ricard        | max_verstappen | max_verstappen |
+| 2021 | 8     | red_bull_ring | max_verstappen | max_verstappen |
+| 2021 | 9     | red_bull_ring | max_verstappen | max_verstappen |
+| 2021 | 10    | silverstone   | hamilton       | hamilton       |
+| 2021 | 11    | hungaroring   | hamilton       | ocon           |
+| 2021 | 12    | spa           | max_verstappen | max_verstappen |
+| 2021 | 13    | zandvoort     | max_verstappen | max_verstappen |
+| 2021 | 14    | monza         | ricciardo      | ricciardo      |
+| 2021 | 15    | sochi         | hamilton       | hamilton       |
+| 2021 | 16    | istanbul      | bottas         | bottas         |
+| 2021 | 17    | americas      | max_verstappen | max_verstappen |
+| 2021 | 18    | rodriguez     | max_verstappen | max_verstappen |
+| 2021 | 19    | interlagos    | hamilton       | hamilton       |
+| 2021 | 20    | losail        | hamilton       | hamilton       |
+| 2021 | 21    | jeddah        | hamilton       | hamilton       |
+| 2021 | 22    | yas_marina    | max_verstappen | max_verstappen |
+
+
 
 ## Data Preprocessing
-The following CSV files sourced from [Kaggle](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) have been cleansed and combined into a final dataset, some examples of the columns shown below. Some columns have also been calculated, such as driver age.
+The following CSV files sourced from [Kaggle](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020) were cleansed and combined into a final dataset, some examples of the columns shown below. A few columns have also been calculated, such as driver age.
 
 **Files** \
 *Fact Tables*
@@ -72,7 +101,7 @@ avg_constructor_positions <- master_results %>%
        y = "Finishing Race Position")
 ```
 
-In 2021, the lower quartile between Mercedes and Red Bull is close, with more overall variance in Red Bulls finishing position. This is backed up as 2021 was the most competitive season since the dawn of the hybrid era (2014), with Mercedes winning the constrcutors title, due to more consistantly high finishing positions, but Verstappen ultimately *won* the drivers championship, likely explaining the slightly lower lower quartile for Red Bull.
+In 2021, the lower quartile between Mercedes and Red Bull is close, with more overall variance in Red Bulls finishing position. This is backed up as 2021 was the most competitive season since the dawn of the hybrid era (2014), with Mercedes winning the constrcutors title, due to more consistantly high finishing positions, but Verstappen ultimately *won* the drivers championship, likely explaining the slightly lower quartile for Red Bull.
 
 ![cons_positions](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_avg_constructor_wins.png)
 
@@ -81,27 +110,3 @@ Next, I will look at how to apply machine learning methods to this F1 data to tr
 
 ## Results
 
-| year | round | circuit       | Actual         | Predicted      |
-| ---- | ----- | ------------- | -------------- | -------------- |
-| 2021 | 1     | bahrain       | hamilton       | hamilton       |
-| 2021 | 2     | imola         | max_verstappen | max_verstappen |
-| 2021 | 3     | portimao      | hamilton       | hamilton       |
-| 2021 | 4     | catalunya     | hamilton       | hamilton       |
-| 2021 | 5     | monaco        | hamilton       | max_verstappen |
-| 2021 | 6     | baku          | perez          | perez          |
-| 2021 | 7     | ricard        | max_verstappen | max_verstappen |
-| 2021 | 8     | red_bull_ring | max_verstappen | max_verstappen |
-| 2021 | 9     | red_bull_ring | max_verstappen | max_verstappen |
-| 2021 | 10    | silverstone   | hamilton       | hamilton       |
-| 2021 | 11    | hungaroring   | hamilton       | ocon           |
-| 2021 | 12    | spa           | max_verstappen | max_verstappen |
-| 2021 | 13    | zandvoort     | max_verstappen | max_verstappen |
-| 2021 | 14    | monza         | ricciardo      | ricciardo      |
-| 2021 | 15    | sochi         | hamilton       | hamilton       |
-| 2021 | 16    | istanbul      | bottas         | bottas         |
-| 2021 | 17    | americas      | max_verstappen | max_verstappen |
-| 2021 | 18    | rodriguez     | max_verstappen | max_verstappen |
-| 2021 | 19    | interlagos    | hamilton       | hamilton       |
-| 2021 | 20    | losail        | hamilton       | hamilton       |
-| 2021 | 21    | jeddah        | hamilton       | hamilton       |
-| 2021 | 22    | yas_marina    | max_verstappen | max_verstappen |
