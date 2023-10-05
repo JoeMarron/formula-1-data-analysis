@@ -1,10 +1,10 @@
 
 # Formula 1 Machine Learning in R
 
-Implemented a machine learning model on Formula 1 data to predict race winners. First time using R, as part of the *R for Data Science* module in the MSc Data Science & Financial Technology from University of London.
+Implementation of a machine learning model on Formula 1 data to predict race winners. First time using R, as part of the *R for Data Science* module in the MSc Data Science & Financial Technology from University of London.
 
 ## Summary
-Successful implementation of a deep feed-forward neural network was achieved using R, resulting in successfully predicting race winners for **67%** of races. Using K-Fold Cross Validation, I applied a NN model to 3 versions of the dataset, due to the imbalance of classes (only 5% of the rows in data represented a winner) - the standard dataset, an oversampled and undersampled one. Suprisingly, the data with no sampling method applied performed the best on average, with the resulting race predictions for the **2021 Formula One World Championship** shown in the table below.
+Successful implementation of a deep feed-forward neural network was achieved using R, resulting in successfully predicting race winners for **67%** of races. Using K-Fold Cross Validation, I applied a NN model to 3 versions of the dataset, due to the imbalance of classes (only 5% of the rows in data represented a winner) - the standard dataset, an oversampled and undersampled one. Suprisingly, the data with no sampling method applied performed the best on average, with the resulting race predictions for the **2021 Formula One World Championship** shown in the table below displaying the most accurately predicted season.
 
 | Year | Round | Circuit       | Driver Nationality | Driver Age | Actual           | Predicted        |
 | ---- | ----- | ------------- | ------------------ | ---------- | ---------------- | ---------------- |
@@ -102,9 +102,4 @@ avg_constructor_positions <- master_results %>%
 In 2021, the lower quartile between Mercedes and Red Bull is close, with more overall variance in Red Bulls finishing position. This is backed up as 2021 was the most competitive season since the dawn of the hybrid era (2014), with Mercedes winning the constrcutors title, due to more consistantly high finishing positions, but Verstappen ultimately *won* the drivers championship, likely explaining the slightly lower quartile for Red Bull.
 
 ![cons_positions](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_avg_constructor_wins.png)
-
-## TBC
-Next, I will look at how to apply machine learning methods to this F1 data to try and predict race winners.
-
-## Results
 
