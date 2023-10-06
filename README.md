@@ -64,42 +64,29 @@ The following CSV files sourced from [Kaggle](https://www.kaggle.com/datasets/ro
 I explored the data in detail with a couple examples of results shown below. All code can be found in the data_cleansing_and_EDA.R file.
 
 #### Home Advantage in F1
-Below shows the code and subsequent graph showing the Silverstone GP winners grouped by nationality. This demonstrates a potential for home race advantage, although some of this may be bias as Hamilton makes up a substantial amount of the 'British' wins (8/29) and has won a large proportion of all the races in the last ~15 years.
-
-```
-british_gp_winners <- master_results %>%
-  filter(country == "UK", position == 1) %>%
-  select(year, driver_nationality) %>% 
-  group_by(year, driver_nationality) %>%
-  summarise(count_nt = n()) %>% 
-  ggplot(aes(fct_rev(fct_infreq(driver_nationality)), fill=as.factor(ifelse(driver_nationality=="British","Highlight","Normal"))))+
-  geom_bar(position = "dodge", show.legend=FALSE)+
-  scale_fill_manual(values=c("#C8102E","#8898AC"))+
-  labs(title = "Total Wins at Silverstone (UK) by Driver Nationality",
-       x = "Driver Nationality",
-       y = "Number of Wins")+coord_flip()
-```
+Below shows the Silverstone GP winners grouped by nationality. This demonstrates a potential for home race advantage, although some of this may be bias as Hamilton makes up a substantial amount of the 'British' wins (8/29) and has won a large proportion of all the races in the last ~15 years.
 
 ![silverstone_winners](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_silverstone_winners_nationality.png)
 
 #### Constructor Race Wins by Season
-Below shows how three competitive constructors (Ferrari, Mercedes and Red Bull) average finishing positions change across seasons from 2018-2022. This demonstrates how constructor information will be crucial for a machine learning model in predicting race winners.
-
-```
-avg_constructor_positions <- master_results %>% 
-  filter(constructor_name %in% c("Ferrari", "Red Bull", "Mercedes"), year>2017) %>%
-  select(year, constructor_name, positionOrder) %>% 
-  ggplot(aes(x=factor(year), y=positionOrder, fill=constructor_name, dodge=constructor_name))+
-  stat_boxplot(geom ='errorbar')+
-  geom_boxplot()+
-  scale_fill_manual(values=c("#DC0000","#00D2BE","#0600EF"))+
-  ylim(1, 25)+
-  labs(title = "Race Finishing Positions for Ferrari, Mercedes & Red Bull over last 5 seasons",
-       x = "Season",
-       y = "Finishing Race Position")
-```
-
-In 2021, the lower quartile between Mercedes and Red Bull is close, with more overall variance in Red Bulls finishing position. This is backed up as 2021 was the most competitive season since the dawn of the hybrid era (2014), with Mercedes winning the constrcutors title, due to more consistantly high finishing positions, but Verstappen ultimately *won* the drivers championship, likely explaining the slightly lower quartile for Red Bull.
+Below shows how three competitive constructors (Ferrari, Mercedes and Red Bull) average finishing positions change across seasons from 2018-2022. In 2021, the lower quartile between Mercedes and Red Bull is close, with more overall variance in Red Bulls finishing position. This is backed up as 2021 was the most competitive season since the dawn of the hybrid era (2014), with Mercedes winning the constrcutors title, due to more consistantly high finishing positions, but Verstappen ultimately *won* the drivers championship, likely explaining the slightly lower quartile for Red Bull.
 
 ![cons_positions](https://github.com/joemarron/formula-1-machine-learning/blob/main/EDA/EDA_avg_constructor_wins.png)
+
+## Modelling
+The above data was then scaled using One-Hot-Encoding and Min-Max normalisation for categorical and numerical column respectively. The data was then split into 3 different samples (the standard dataset, an oversampled one and an undersampled one) to try and optimise the NN performance given the class imbalance. Each of these then had hyperparameter optimisation carried out with 6-Fold Cross Validation to provide a generalised performance of each NN model. The model used was a FFNN with 3 hidden layers. The below table demonstrates the optimal parameters found in the standard sampling; the best performing dataset. The modelling code can eb found in the formula_1_ML.R file, with the NN architecture pulled from the neural_network.R file.
+
+#### Optimal Parameters
+| Hidden Nodes | Activation | Learning Rate | Drop Out | Epochs | Batch Size | Validation Split |
+| ------------ | ---------- | ------------- | -------- | ------ | ---------- | ---------------- |
+| 64           | ReLU       | 0.001         | 0.1      | 40     | 64         | 0.2              |
+
+## Results
+To evaluate the results of the implemented Neural Networks, we use sensitivity instead of accuracy. This is because we're most conerned with selecting the correct winners out of all winners; we are less concerned with correctly predicting all the non-winners for each race. The below confusion matrices demonstrate the performance of the models in the standard sampling dataset. Sensitivity can be calculated for each fold using the below formula, giving a value of 0.45 for fold 1 in the below plot.
+
+![sens_formula](https://render.githubusercontent.com/render/math?math=Sensitivity%20%3D%20Recall%20%3D%20%5Cfrac%7BTP%7D%7BTP%2BFN%7D)
+
+![combined_standard_matrices](https://github.com/joemarron/formula-1-machine-learning/blob/main/results/standard_combined.png)
+
+
 
