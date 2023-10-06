@@ -96,6 +96,10 @@ To evaluate the results of the implemented Neural Networks, we use sensitivity i
 The below shows the bar plot for the best recall achieved for each fold and each sampling method, as well as the overall average. This demonstrates that the performance of the models vary between folds, likely due to different championship years being easier to predict than other, but the standard sampling method performs slightly better than the other methods. Further work may look into different sampling techniques such as SMOTE and implementation of the model to try and acheive sport betting arbitrage.
 
 #### Overall Sensitivities (Recall) Achieved per Sampling Method and Fold
+<p align="center">
+  <img src="https://github.com/joemarron/formula-1-machine-learning/blob/main/results/sens_combined.png" />
+</p>
+
 ![sens_combined](https://github.com/joemarron/formula-1-machine-learning/blob/main/results/sens_combined.png)
 
 
