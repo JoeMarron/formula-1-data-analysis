@@ -99,7 +99,3 @@ The below shows the bar plot for the best recall achieved for each fold and each
 <p align="center">
   <img src="https://github.com/joemarron/formula-1-machine-learning/blob/main/results/sens_combined.png" />
 </p>
-
-![sens_combined](https://github.com/joemarron/formula-1-machine-learning/blob/main/results/sens_combined.png)
-
-
