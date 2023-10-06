@@ -83,6 +83,7 @@ The above data was then scaled using One-Hot-Encoding and Min-Max normalisation 
 
 ## Results
 To evaluate the results of the implemented Neural Networks, we use sensitivity instead of accuracy. This is because we're most conerned with selecting the correct winners out of all winners; we are less concerned with correctly predicting all the non-winners for each race. The below confusion matrices demonstrate the performance of the models in the standard sampling dataset for each fold of CV. Sensitivity can be calculated for each fold using the below formula, giving a value of 0.45 for fold 1 in the below plot.
+
 </br>
 
 ![sens_formula](https://render.githubusercontent.com/render/math?math=Sensitivity%20%3D%20Recall%20%3D%20%5Cfrac%7BTP%7D%7BTP%2BFN%7D)
@@ -92,5 +93,7 @@ To evaluate the results of the implemented Neural Networks, we use sensitivity i
 #### Standard Sampling Neural Network Confusion Matrix per Fold
 ![combined_standard_matrices](https://github.com/joemarron/formula-1-machine-learning/blob/main/results/standard_combined.png)
 
+#### Overall Sensitivities (Recall) Achieved per Sampling Method and Fold
+![sens_combined](https://github.com/joemarron/formula-1-machine-learning/blob/main/results/sensitivity_combined.png)
 
 
